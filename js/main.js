@@ -63,7 +63,7 @@ function CloseBars() {
 // Close List Links By click AnyWay
 document.addEventListener("click", (e) => {
   // e.stopPropagation;
-  if (e.target != bars && e.target != Close) {
+  if (e.target != bars && e.target != Close && e.target != nav) {
     nav.classList.add("show");
   }
 });
