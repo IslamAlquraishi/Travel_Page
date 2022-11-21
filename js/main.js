@@ -1,17 +1,5 @@
-// <<================== Scroll Header =====================>>
-
+//  Scroll Header
 let header = document.getElementById("header");
-
-// <<================== bars ==============================>>
-
-let bars = document.getElementById("bars");
-let nav = document.getElementById("nav");
-let Close = document.getElementById("close");
-
-// <<================== Alert =============================>>
-
-let BtnAlert = document.getElementById("btn-alert");
-let ContentAlert = document.getElementById("content-alert");
 
 onscroll = function () {
   // Scroll Background
@@ -35,45 +23,55 @@ onscroll = function () {
   this.scrollY >= 1480 ? up.classList.add("show") : up.classList.remove("show");
 };
 
-// <<================== Onload Up =========================>>
+//  Alert
+let BtnAlert = document.getElementById("btn-alert");
+let ContentAlert = document.getElementById("content-alert");
 
+//  Onload Up
 onload = function () {
   ContentAlert.classList.add("hide-alert");
-
   setTimeout(function () {
     ContentAlert.classList.remove("hide-alert");
   }, 300);
 };
 
-// <<================== Click Alert =======================>>
-
+//  Click Alert
 BtnAlert.addEventListener("click", function () {
   ContentAlert.classList.add("hide-alert");
 });
 
-// <<================== Loop Alert ========================>>
-
+//  Loop Alert
 setInterval(function () {
   ContentAlert.classList.remove("hide-alert");
 }, 45000);
 
-// <<================== Start Click Up ====================>>
+//  bars
+let bars = document.getElementById("bars");
+let nav = document.getElementById("nav");
+let Close = document.getElementById("close");
 
+//  bars Click
+bars.addEventListener("click", function () {
+  nav.classList.toggle("show");
+});
+
+//  bars Close
+function CloseBars() {
+  nav.classList.add("show");
+}
+
+// Close List Links By click AnyWay
+document.addEventListener("click", (e) => {
+  // e.stopPropagation;
+  if (e.target != bars && e.target != Close) {
+    nav.classList.add("show");
+  }
+});
+
+//  Start Click Up
 up.addEventListener("click", function () {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
   });
 });
-
-// <<================== bars Click ========================>>
-
-bars.addEventListener("click", function () {
-  nav.classList.toggle("show");
-});
-
-// <<================== bars Close ========================>>
-
-function CloseBars() {
-  nav.classList.add("show");
-}
